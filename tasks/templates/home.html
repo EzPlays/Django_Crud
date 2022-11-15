@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <main class="container py-5">
+        <section class="card card-body">
+            <h1 class="display-1 text-center">Django App</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aperiam odio architecto molestiae at nulla veniam dolorem blanditiis autem fuga, cumque totam nostrum asperiores, aliquam obcaecati aut corporis. Totam fuga sit ratione aperiam architecto velit ut. Corporis distinctio itaque in velit quaerat dolor suscipit consequatur facilis veritatis doloribus deleniti earum fugiat, eum tempore eveniet tempora nesciunt impedit assumenda dolore quas eos laborum quisquam vitae a. Vitae obcaecati officia magni deserunt dolores sequi nostrum ipsa eligendi, quod ratione iure facere officiis veritatis reprehenderit odio aliquam. Officiis, vitae amet. Eveniet officia, veritatis accusamus error quidem voluptatem expedita, odio libero delectus dolores eum?</p>
+
+            
+            <div class="text-center">
+                {% if user.is_authenticated == False %}
+                <a href="/signin" class="btn btn-secondary">SignIn</a>
+                <a href="/signup" class="btn btn-secondary">SignUp</a>
+                {% else %}
+                <p>Welcome {{ user.username }}</p>
+                {% endif %}
+            </div>
+            
+        </section>
+    </main>
+
+    {% endblock %}
+    
+</body>
+</html>

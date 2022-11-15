@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Detail</title>
+</head>
+
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 m-auto mt-4 offset-md-4">
+
+                <div class="card card-body">
+                    <h1 class="text-secondary text-center">{{ task.title }}</h1>
+
+                    {{error}}
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        {{ form }}
+
+
+                        <button class="btn btn-success">
+                            Update
+                        </button>
+                    </form>
+                </div>
+
+                <br>
+
+                <div class="d-flex">
+                    <form action="{% url 'complete_task' task.id %}" method="post">
+                        {% csrf_token %}
+
+                        <button class="btn btn-primary">
+                            Complete
+                        </button>
+                    </form>
+
+                    <br>
+
+                    <form action="{% url 'delete_task' task.id %}" method="post">
+                        {% csrf_token %}
+
+                        <button class="btn btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    {% endblock %}
+
+</body>
+
+</html>
